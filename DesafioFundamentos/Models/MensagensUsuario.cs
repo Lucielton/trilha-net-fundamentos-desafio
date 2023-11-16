@@ -26,8 +26,12 @@ public class MensagensUsuario
     }
 
     public static void VeiculosEstacionados(List<string> veiculos){
-        Console.WriteLine("Os veículos estacionados são:");
-        foreach (string veiculo in veiculos)
-            Console.WriteLine(veiculo);
+        if (veiculos.Any())
+        {
+            Console.WriteLine("Os veículos estacionados são:");
+            foreach (string veiculo in veiculos) Console.WriteLine(veiculo);         
+        }
+        else
+            Console.WriteLine(NaoHaVeiculosEstacionados);
     }
 }

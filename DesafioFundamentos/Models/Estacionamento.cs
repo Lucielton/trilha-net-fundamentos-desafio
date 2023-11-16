@@ -20,10 +20,8 @@ namespace DesafioFundamentos.Models
             return true;
         }
 
-        public void RemoverVeiculo()
+        public bool RemoverVeiculo(string placa)
         {
-            string placa = Console.ReadLine().ToString();
-
             // Verifica se o veículo existe
             //if (veiculos.Any(v => v.ToUpper() == placa.ToUpper()))
             if(veiculos.Any(v => StringComparer.OrdinalIgnoreCase.Equals(v, placa)))
@@ -36,18 +34,19 @@ namespace DesafioFundamentos.Models
                 veiculos.Remove(placa);
 
                 MensagensUsuario.VeiculoRemovido(placa, valorTotal);
+                return true;
             }
             else
+            {
                 Console.WriteLine(MensagensUsuario.VeiculoNaoEstacionado);
+                return false;
+            }
         }
 
-        public void ListarVeiculos()
+        public List<string> ListarVeiculos()
         {
             // Verifica se há veículos no estacionamento
-            if (veiculos.Any())
-                MensagensUsuario.VeiculosEstacionados(veiculos);            
-            else
-                Console.WriteLine(MensagensUsuario.NaoHaVeiculosEstacionados);
+            return veiculos;
         }
     }
 }

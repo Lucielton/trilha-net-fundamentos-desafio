@@ -31,11 +31,11 @@ while (exibirMenu)
 
         case "2":
             Console.WriteLine(MensagensUsuario.SolicitarPlacaParaRemover);
-            es.RemoverVeiculo();
+            es.RemoverVeiculo(Console.ReadLine().ToString());
             break;
 
         case "3":
-            es.ListarVeiculos();
+            MensagensUsuario.VeiculosEstacionados(es.ListarVeiculos());
             break;
 
         case "4":
